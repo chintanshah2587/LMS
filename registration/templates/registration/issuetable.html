@@ -1,0 +1,71 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    
+    .issuebook-form{
+        padding: 50px;
+        position: relative;
+        width: 350px;
+        height: 500px;
+        top: 0%;
+        left: 35%;
+
+    }
+    .issuebook-form{
+     padding: 50px;
+     border-radius:30px;
+     background-color:black;
+     color:white;
+     margin-top:5%;
+    border:3px solid;
+    }
+
+
+    input:hover
+      {
+        background-color:lightblue;
+      }
+</style>
+
+
+<div class="container">
+    <div class="issuebook-form">
+        <h1>Issue Book</h1><hr>
+        <form method="POST" action="">
+            {% csrf_token %}
+            Student ID
+            <br>
+            {{form.s_id}}
+            <br>
+            
+            Student Name
+            <br>
+            {{form.s_name}}
+        
+            <br>
+            Book ID
+            <br>
+            {{form.b_id}}
+            <br>
+             Book Name
+             <br>
+            {{form.b_name}}
+            <br>
+           
+            Date of Issue (YYYY-MM-DD)
+            {{form.dateofissue}}
+            <br>
+            <br>
+            <input type="submit" name="Add">
+            {% for message in messages %}
+            <h3><p id="messages">{{message}}</p></h3>
+            {%endfor%}
+        </form>
+    </div>
+</div>
+    
+
+
+{% endblock %}

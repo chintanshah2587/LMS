@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block content %}
+
+{%load static%}
+<style>
+    .img1{
+        background-size: cover;
+        height: 100vh;
+        overflow: hidden;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div class="image">
+        <img src="{% static 'homeimage.jpg' %}" class="img1">
+    </div>
+    
+</body>
+
+{% endblock %}

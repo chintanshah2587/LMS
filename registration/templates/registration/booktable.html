@@ -1,0 +1,45 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+
+<style>
+    .btn-primary{
+        width: 200px;
+        position: relative;
+        left: 80%;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-md">
+        <br><br>
+        <div class="card card-body">
+            <h1 style="text-align: center;">Book Table</h1>
+            <a href="{% url 'exportexcelbook' %}" class="btn btn-primary">Export Excel</a>
+        </div>
+        <div class="card card-body">
+            <table class="table">
+                <tr>
+                    <th>Book ID</th>
+                    <th>Name</th>
+                    <th>ISBN</th>
+                    <th>Author</th>
+                    <th>No. of Copies</th>
+                </tr>
+                {% for i in books %}
+                <tr>
+                    <td>{{i.bid}}</td>
+                    <td>{{i.bname}}</td>
+                    <td>{{i.isbn}}</td>
+                    <td>{{i.author}}</td>
+                    <td>{{i.bcount}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

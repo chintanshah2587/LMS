@@ -1,0 +1,62 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .container div {
+    position:relative;
+    }
+    .studentform{
+     
+        padding: 50px;
+        position: absolute;
+        width: 350px;
+        top: 50%;
+        left: 30%;
+         border:3px solid;
+        background-color:black;
+        color:white;
+            border-radius:50px;
+     
+
+    }
+input:hover
+      {
+        background-color:lightblue;
+      }
+    
+</style>
+
+
+<div class="container">
+    <br>
+    <div class=" studentform">
+    <h1> Add Student</h1><hr>
+    <form method="POST" action="">
+        {% csrf_token %}
+        ID<br>
+        {{form.sid}}
+        <br>
+        Name<br>
+        {{form.sname}}
+        <br>
+        Date of birth (YYYY-MM-DD)<br>
+        {{form.dob}}
+        <br>
+        Branch<br>
+        {{form.branch}}
+        <br>
+        Year<br>
+        {{form.year}}
+        <br>
+        <br>
+        <input type="submit" name="Add">
+        {% for message in messages %}
+        <h3><p id="messages">{{message}}</p></h3>
+        {%endfor%}
+    </form>
+    </div>
+</div>
+
+
+{% endblock %}

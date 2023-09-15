@@ -1,0 +1,43 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .btn-primary{
+        width: 200px;
+        position: relative;
+        left: 80%;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md">
+        <br><br>
+        <div class="card card-body">
+            <h1 style=" text-align: center;">Student Table</h1>
+            <a href="{% url 'exportexcelstudent' %}" class="btn btn-primary">Export Excel</a>
+        </div>
+        <div class="card card-body">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                </tr>
+                {% for i in students %}
+                <tr>
+                    <td>{{i.sid}}</td>
+                    <td>{{i.sname}}</td>
+                    <td>{{i.dob}}</td>
+                    <td>{{i.branch}}</td>
+                    <td>{{i.year}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
